@@ -42,7 +42,7 @@ function App() {
     <ThemeProvider>
       <BookingProvider>
         <BrowserRouter>
-          <div className="min-h-screen bg-charcoal">
+          <div className="min-h-screen bg-cream dark:bg-charcoal transition-colors duration-300">
             <Navbar />
             <Suspense fallback={<LoadingSpinner />}>
               <AnimatedRoutes />
