@@ -1,70 +1,164 @@
-# Getting Started with Create React App
+# L'Élégance – Premium Restaurant Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A luxury, multi-page front-end restaurant website built with React.js, Tailwind CSS, and Framer Motion. This is a showcase project demonstrating premium UI/UX design with immersive animations, a complete booking system with QR code generation/scanning, and responsive design.
 
-## Available Scripts
+![React](https://img.shields.io/badge/React-18-blue) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-06B6D4) ![Framer Motion](https://img.shields.io/badge/Framer_Motion-11-ff69b4)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+| Technology | Purpose |
+|---|---|
+| **React.js 18** | UI framework (functional components, hooks) |
+| **React Router v6** | Multi-page routing with animated transitions |
+| **Tailwind CSS 3** | Utility-first styling (no external CSS) |
+| **Framer Motion** | Animations, page transitions, micro-interactions |
+| **React Hook Form + Yup** | Form handling & validation |
+| **html5-qrcode** | QR code scanner (camera-based) |
+| **qrcode.react** | QR code generation |
+| **Zustand / Context API** | State management (bookings, theme) |
+| **React Hot Toast** | Toast notifications |
+| **Axios** | HTTP client with placeholder interceptors |
+| **LocalStorage** | Persistent booking data (no backend required) |
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Pages & Routes
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Route | Page | Features |
+|---|---|---|
+| `/` | Home | Cinematic hero, parallax, animated stats, featured dishes, testimonials, CTA |
+| `/menu` | Menu | Categorized grid, animated filtering, search, 3D tilt dish cards |
+| `/booking` | Book a Table | Multi-step wizard, live availability simulation, QR code on success |
+| `/reservations` | My Reservations | Booking list, filters, expandable cards, cancel/modify |
+| `/scanner` | QR Scanner | Live camera scanner, manual entry fallback, booking verification |
+| `/gallery` | Gallery | Masonry layout, lightbox with zoom, lazy loading |
+| `/about` | About & Contact | Chef story, interactive timeline, contact form, Google Maps |
+| `*` | 404 | Animated error page with floating elements |
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Setup & Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+# Clone the repository
+git clone <repo-url>
+cd luxury-restaurant
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Install dependencies
+npm install
 
-### `npm run eject`
+# Start development server
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The app will open at [http://localhost:3000](http://localhost:3000).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Production Build
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm run build
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## Features
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Design
+- **Dark luxury theme** with charcoal, gold, and burgundy palette
+- **Glassmorphism** cards and **neumorphic** buttons
+- **Playfair Display** serif headings + **Inter** sans-serif body
+- Fully responsive (mobile-first, 640px/768px/1024px/1280px breakpoints)
+- Dark/Light theme toggle
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Animations (Framer Motion)
+- Page transitions (fade + slide)
+- Scroll-triggered reveals with staggered children
+- Hover effects: scale, glow, 3D tilt
+- Mouse-follow parallax on hero
+- Floating particles
+- Animated progress bars and loading spinners
+- Toast notification slide-in
 
-### Code Splitting
+### Booking System
+- Multi-step form wizard with animated progress
+- Live availability simulation (10 tables per 30-min slot)
+- Client-side double-booking prevention
+- Booking stored in localStorage
+- QR code generated with booking reference
+- Cancel/modify with confirmation dialogs
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### QR Scanner
+- Live camera scanning using `html5-qrcode`
+- Manual ID entry fallback
+- Booking verification with "Verified" animation
+- "Already scanned" detection
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Testing the QR Scanner
 
-### Making a Progressive Web App
+1. **Create a booking**: Go to `/booking` and complete the reservation form
+2. **View QR code**: After submission, a QR code is shown in the success modal
+3. **Scan it**: Navigate to `/scanner` and scan the QR code from screen or use manual entry
+4. **Verify**: The booking details will appear in a verification modal
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Sample QR Test
+You can also manually test by:
+1. Going to `/reservations`
+2. Expanding any booking card
+3. Copying the Reference ID
+4. Pasting it in the Scanner's manual entry field
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Project Structure
 
-### Deployment
+```
+src/
+├── components/       # Reusable UI components
+│   ├── Navbar.js
+│   ├── Footer.js
+│   ├── PageTransition.js
+│   ├── ScrollReveal.js
+│   └── LoadingSpinner.js
+├── context/          # React Context providers
+│   ├── ThemeContext.js
+│   └── BookingContext.js
+├── data/             # Static data (menu items, gallery, testimonials)
+│   └── menuData.js
+├── pages/            # Route-level page components
+│   ├── Home.js
+│   ├── Menu.js
+│   ├── Booking.js
+│   ├── Reservations.js
+│   ├── Scanner.js
+│   ├── Gallery.js
+│   ├── About.js
+│   └── NotFound.js
+├── utils/            # Utilities
+│   └── axios.js
+├── App.js            # Root component with routing
+├── index.js          # Entry point
+└── index.css         # Tailwind directives + custom utilities
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project can be deployed to any static hosting platform:
+
+```bash
+npm run build
+# Deploy the /build folder to Vercel, Netlify, etc.
+```
+
+For client-side routing to work, configure your hosting to redirect all routes to `index.html`.
+
+---
+
+## License
+
+MIT

@@ -1,13 +1,57 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  body {
+    @apply font-sans bg-cream text-charcoal antialiased;
+  }
+  .dark body, body.dark {
+    @apply bg-charcoal text-cream;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components {
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl;
+  }
+  .gold-gradient {
+    @apply bg-gradient-to-r from-gold-dark via-gold to-gold-light;
+  }
+  .text-gold-gradient {
+    @apply bg-gradient-to-r from-gold-dark via-gold to-gold-light bg-clip-text text-transparent;
+  }
+  .btn-primary {
+    @apply px-8 py-3 bg-gold text-charcoal font-semibold rounded-full 
+           hover:bg-gold-light transition-all duration-300 
+           shadow-lg hover:shadow-gold/30 active:scale-95;
+  }
+  .btn-secondary {
+    @apply px-8 py-3 border-2 border-gold text-gold font-semibold rounded-full 
+           hover:bg-gold hover:text-charcoal transition-all duration-300 
+           active:scale-95;
+  }
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 xl:px-16 py-16 md:py-24;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.dark {
+  color-scheme: dark;
 }
