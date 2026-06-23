@@ -49,7 +49,7 @@ export default function About() {
 
   return (
     <PageTransition>
-      <div className="min-h-screen bg-charcoal pt-28 pb-20">
+      <div className="min-h-screen bg-cream dark:bg-charcoal pt-28 pb-20">
         {/* Hero */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
@@ -57,10 +57,10 @@ export default function About() {
               <p className="text-gold tracking-widest uppercase text-sm mb-3">
                 Our Story
               </p>
-              <h1 className="font-serif text-5xl sm:text-6xl text-white font-bold mb-6">
+              <h1 className="font-serif text-5xl sm:text-6xl text-charcoal dark:text-white font-bold mb-6">
                 About L'Élégance
               </h1>
-              <p className="text-white/60 max-w-3xl mx-auto text-lg leading-relaxed">
+              <p className="text-charcoal/60 dark:text-white/60 max-w-3xl mx-auto text-lg leading-relaxed">
                 For over two decades, L'Élégance has been a beacon of culinary excellence.
                 Founded on the belief that dining should be an art form, we craft each experience
                 to be as memorable as it is delicious.
@@ -98,21 +98,21 @@ export default function About() {
               <p className="text-gold tracking-widest uppercase text-sm mb-3">
                 Master of Flavour
               </p>
-              <h2 className="font-serif text-4xl text-white font-bold mb-6">
+              <h2 className="font-serif text-4xl text-charcoal dark:text-white font-bold mb-6">
                 Chef Laurent Dubois
               </h2>
-              <p className="text-white/60 leading-relaxed mb-4">
+              <p className="text-charcoal/60 dark:text-white/60 leading-relaxed mb-4">
                 Born in Lyon, France, Chef Laurent's journey began in his grandmother's
                 kitchen. His passion for transforming the finest ingredients into works of
                 art led him to train under Paul Bocuse and Alain Ducasse before opening
                 L'Élégance in 1999.
               </p>
-              <p className="text-white/60 leading-relaxed mb-4">
+              <p className="text-charcoal/60 dark:text-white/60 leading-relaxed mb-4">
                 His culinary philosophy harmonizes French classical technique with global
                 influences, resulting in dishes that surprise and delight even the most
                 seasoned palates.
               </p>
-              <p className="text-white/60 leading-relaxed">
+              <p className="text-charcoal/60 dark:text-white/60 leading-relaxed">
                 "Food is not just sustenance – it is poetry on a plate. Every ingredient
                 has a story, every dish an emotion. My role is to be the narrator."
               </p>
@@ -126,7 +126,7 @@ export default function About() {
                 <p className="text-gold tracking-widest uppercase text-sm mb-3">
                   Our Journey
                 </p>
-                <h2 className="font-serif text-4xl text-white font-bold">
+                <h2 className="font-serif text-4xl text-charcoal dark:text-white font-bold">
                   A Legacy of Excellence
                 </h2>
               </div>
@@ -142,11 +142,11 @@ export default function About() {
                     <div className={`flex-1 ${i % 2 === 0 ? 'md:text-right md:pr-12' : 'md:text-left md:pl-12'}`}>
                       <motion.div
                         whileHover={{ y: -5 }}
-                        className="bg-dark-card border border-white/5 rounded-2xl p-6 inline-block"
+                        className="bg-white dark:bg-dark-card border border-charcoal/10 dark:border-white/5 rounded-2xl p-6 inline-block"
                       >
                         <span className="text-gold font-serif text-2xl font-bold">{item.year}</span>
-                        <h3 className="text-white font-medium text-lg mt-1">{item.title}</h3>
-                        <p className="text-white/50 text-sm mt-2">{item.description}</p>
+                        <h3 className="text-charcoal dark:text-white font-medium text-lg mt-1">{item.title}</h3>
+                        <p className="text-charcoal/50 dark:text-white/50 text-sm mt-2">{item.description}</p>
                       </motion.div>
                     </div>
                     {/* Center dot */}
@@ -165,10 +165,10 @@ export default function About() {
                 <p className="text-gold tracking-widest uppercase text-sm mb-3">
                   Get in Touch
                 </p>
-                <h2 className="font-serif text-4xl text-white font-bold mb-6">
+                <h2 className="font-serif text-4xl text-charcoal dark:text-white font-bold mb-6">
                   Contact Us
                 </h2>
-                <p className="text-white/60 leading-relaxed mb-8">
+                <p className="text-charcoal/60 dark:text-white/60 leading-relaxed mb-8">
                   We'd love to hear from you. Whether it's a question about our menu,
                   a private event inquiry, or feedback on your experience.
                 </p>
@@ -180,7 +180,7 @@ export default function About() {
                       type="text"
                       {...register('name')}
                       placeholder="Your Name"
-                      className="w-full px-5 py-4 bg-dark-card border border-white/10 rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-gold/50 transition-all"
+                      className="w-full px-5 py-4 bg-white dark:bg-dark-card border border-charcoal/10 dark:border-white/10 rounded-xl text-charcoal dark:text-white placeholder:text-charcoal/30 dark:placeholder:text-white/30 focus:outline-none focus:border-gold/50 transition-all"
                     />
                     {errors.name && (
                       <motion.p
@@ -197,7 +197,7 @@ export default function About() {
                       type="email"
                       {...register('email')}
                       placeholder="Your Email"
-                      className="w-full px-5 py-4 bg-dark-card border border-white/10 rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-gold/50 transition-all"
+                      className="w-full px-5 py-4 bg-white dark:bg-dark-card border border-charcoal/10 dark:border-white/10 rounded-xl text-charcoal dark:text-white placeholder:text-charcoal/30 dark:placeholder:text-white/30 focus:outline-none focus:border-gold/50 transition-all"
                     />
                     {errors.email && (
                       <motion.p
@@ -214,7 +214,7 @@ export default function About() {
                       rows={5}
                       {...register('message')}
                       placeholder="Your Message"
-                      className="w-full px-5 py-4 bg-dark-card border border-white/10 rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-gold/50 transition-all resize-none"
+                      className="w-full px-5 py-4 bg-white dark:bg-dark-card border border-charcoal/10 dark:border-white/10 rounded-xl text-charcoal dark:text-white placeholder:text-charcoal/30 dark:placeholder:text-white/30 focus:outline-none focus:border-gold/50 transition-all resize-none"
                     />
                     {errors.message && (
                       <motion.p
@@ -241,7 +241,7 @@ export default function About() {
 
             {/* Map */}
             <ScrollReveal direction="right">
-              <div className="h-full min-h-[400px] rounded-3xl overflow-hidden border border-white/5">
+              <div className="h-full min-h-[400px] rounded-3xl overflow-hidden border border-charcoal/10 dark:border-white/5">
                 <iframe
                   title="Restaurant Location"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9916256937595!2d2.3364881!3d48.8583701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2964e34e2d%3A0x8ddca9ee380ef7e0!2sTour%20Eiffel!5e0!3m2!1sen!2sfr!4v1234567890"

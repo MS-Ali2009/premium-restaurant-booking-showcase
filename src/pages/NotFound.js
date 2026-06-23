@@ -5,7 +5,7 @@ import PageTransition from '../components/PageTransition';
 export default function NotFound() {
   return (
     <PageTransition>
-      <div className="min-h-screen bg-charcoal flex items-center justify-center px-4">
+      <div className="min-h-screen bg-cream dark:bg-charcoal flex items-center justify-center px-4">
         <div className="text-center">
           {/* Animated 404 */}
           <motion.div
@@ -25,7 +25,7 @@ export default function NotFound() {
               <motion.span
                 animate={{ y: [0, -10, 0], rotate: [0, 10, -10, 0] }}
                 transition={{ duration: 3, repeat: Infinity, delay: 0.3 }}
-                className="font-serif text-8xl sm:text-9xl text-white inline-block mx-2"
+                className="font-serif text-8xl sm:text-9xl text-charcoal dark:text-white inline-block mx-2"
               >
                 0
               </motion.span>
@@ -66,7 +66,7 @@ export default function NotFound() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="font-serif text-3xl text-white mb-4"
+            className="font-serif text-3xl text-charcoal dark:text-white mb-4"
           >
             Lost in Elegance
           </motion.h2>
@@ -75,7 +75,7 @@ export default function NotFound() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="text-white/50 max-w-md mx-auto mb-10"
+            className="text-charcoal/50 dark:text-white/50 max-w-md mx-auto mb-10"
           >
             The page you're looking for seems to have wandered off our menu.
             Let us guide you back to our world of culinary excellence.

@@ -41,11 +41,11 @@ function TimeSlot({ time, available, isFull, isSelected, onClick }) {
           ? 'bg-gold text-charcoal shadow-lg shadow-gold/30'
           : isFull
           ? 'bg-red-900/20 text-red-400/50 border border-red-900/30 cursor-not-allowed'
-          : 'bg-dark-card text-white/70 border border-white/10 hover:border-gold/30 hover:text-gold'
+          : 'bg-white dark:bg-dark-card text-charcoal/70 dark:text-white/70 border border-charcoal/10 dark:border-white/10 hover:border-gold/30 hover:text-gold'
       }`}
     >
       <div>{time}</div>
-      <div className={`text-xs mt-1 ${isFull ? 'text-red-400/50' : isSelected ? 'text-charcoal/70' : 'text-white/40'}`}>
+      <div className={`text-xs mt-1 ${isFull ? 'text-red-400/50' : isSelected ? 'text-charcoal/70' : 'text-charcoal/40 dark:text-white/40'}`}>
         {isFull ? 'Full' : `${available} left`}
       </div>
     </motion.button>
@@ -67,7 +67,7 @@ function SuccessModal({ booking, onClose }) {
         exit={{ scale: 0.8, opacity: 0 }}
         transition={{ type: 'spring', stiffness: 200 }}
         onClick={(e) => e.stopPropagation()}
-        className="bg-dark-card border border-gold/20 rounded-3xl p-8 max-w-md w-full text-center"
+        className="bg-white dark:bg-dark-card border border-gold/20 rounded-3xl p-8 max-w-md w-full text-center"
       >
         {/* Success icon */}
         <motion.div
@@ -97,32 +97,32 @@ function SuccessModal({ booking, onClose }) {
           </motion.svg>
         </motion.div>
 
-        <h3 className="font-serif text-2xl text-white mb-2">Reservation Confirmed!</h3>
-        <p className="text-white/60 text-sm mb-6">
+        <h3 className="font-serif text-2xl text-charcoal dark:text-white mb-2">Reservation Confirmed!</h3>
+        <p className="text-charcoal/60 dark:text-white/60 text-sm mb-6">
           Your table has been reserved. Show this QR code upon arrival.
         </p>
 
         {/* Booking Details */}
-        <div className="bg-charcoal/50 rounded-xl p-4 mb-6 text-left space-y-2">
+        <div className="bg-cream dark:bg-charcoal/50 rounded-xl p-4 mb-6 text-left space-y-2">
           <div className="flex justify-between text-sm">
-            <span className="text-white/50">Reference</span>
+            <span className="text-charcoal/50 dark:text-white/50">Reference</span>
             <span className="text-gold font-mono text-xs">{booking.id.slice(0, 8).toUpperCase()}</span>
           </div>
           <div className="flex justify-between text-sm">
-            <span className="text-white/50">Date</span>
-            <span className="text-white">{booking.date}</span>
+            <span className="text-charcoal/50 dark:text-white/50">Date</span>
+            <span className="text-charcoal dark:text-white">{booking.date}</span>
           </div>
           <div className="flex justify-between text-sm">
-            <span className="text-white/50">Time</span>
-            <span className="text-white">{booking.time}</span>
+            <span className="text-charcoal/50 dark:text-white/50">Time</span>
+            <span className="text-charcoal dark:text-white">{booking.time}</span>
           </div>
           <div className="flex justify-between text-sm">
-            <span className="text-white/50">Guests</span>
-            <span className="text-white">{booking.guests}</span>
+            <span className="text-charcoal/50 dark:text-white/50">Guests</span>
+            <span className="text-charcoal dark:text-white">{booking.guests}</span>
           </div>
           <div className="flex justify-between text-sm">
-            <span className="text-white/50">Name</span>
-            <span className="text-white">{booking.customerName}</span>
+            <span className="text-charcoal/50 dark:text-white/50">Name</span>
+            <span className="text-charcoal dark:text-white">{booking.customerName}</span>
           </div>
         </div>
 
@@ -190,7 +190,7 @@ export default function Booking() {
 
   return (
     <PageTransition>
-      <div className="min-h-screen bg-charcoal pt-28 pb-20">
+      <div className="min-h-screen bg-cream dark:bg-charcoal pt-28 pb-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <ScrollReveal>
@@ -198,7 +198,7 @@ export default function Booking() {
               <p className="text-gold tracking-widest uppercase text-sm mb-3">
                 Experience Awaits
               </p>
-              <h1 className="font-serif text-5xl sm:text-6xl text-white font-bold mb-4">
+              <h1 className="font-serif text-5xl sm:text-6xl text-charcoal dark:text-white font-bold mb-4">
                 Book a Table
               </h1>
             </div>
@@ -216,7 +216,7 @@ export default function Booking() {
                     }}
                     className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold border-2 border-gold/30"
                   >
-                    <span className={i <= currentStep ? 'text-charcoal' : 'text-white/50'}>
+                    <span className={i <= currentStep ? 'text-charcoal' : 'text-charcoal/50 dark:text-white/50'}>
                       {i < currentStep ? '✓' : i + 1}
                     </span>
                   </motion.div>
@@ -237,7 +237,7 @@ export default function Booking() {
                 <span
                   key={step}
                   className={`text-xs ${
-                    i === currentStep ? 'text-gold' : 'text-white/40'
+                    i === currentStep ? 'text-gold' : 'text-charcoal/40 dark:text-white/40'
                   }`}
                 >
                   {step}
@@ -260,12 +260,12 @@ export default function Booking() {
                 >
                   {/* Date Input */}
                   <div>
-                    <label className="block text-white/70 text-sm mb-2">Select Date</label>
+                    <label className="block text-charcoal/70 dark:text-white/70 text-sm mb-2">Select Date</label>
                     <input
                       type="date"
                       min={getTodayStr()}
                       {...register('date')}
-                      className="w-full px-5 py-4 bg-dark-card border border-white/10 rounded-xl text-white focus:outline-none focus:border-gold/50 transition-all"
+                      className="w-full px-5 py-4 bg-white dark:bg-dark-card border border-charcoal/10 dark:border-white/10 rounded-xl text-charcoal dark:text-white focus:outline-none focus:border-gold/50 transition-all"
                     />
                     {errors.date && (
                       <motion.p
@@ -284,7 +284,7 @@ export default function Booking() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                     >
-                      <label className="block text-white/70 text-sm mb-3">Select Time</label>
+                      <label className="block text-charcoal/70 dark:text-white/70 text-sm mb-3">Select Time</label>
                       <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
                         {Object.entries(availability).map(([time, slot]) => (
                           <TimeSlot
@@ -322,14 +322,14 @@ export default function Booking() {
                   className="space-y-6"
                 >
                   <div>
-                    <label className="block text-white/70 text-sm mb-2">Number of Guests</label>
+                    <label className="block text-charcoal/70 dark:text-white/70 text-sm mb-2">Number of Guests</label>
                     <input
                       type="number"
                       min="1"
                       max="12"
                       defaultValue={formData.guests || 2}
                       {...register('guests')}
-                      className="w-full px-5 py-4 bg-dark-card border border-white/10 rounded-xl text-white focus:outline-none focus:border-gold/50 transition-all"
+                      className="w-full px-5 py-4 bg-white dark:bg-dark-card border border-charcoal/10 dark:border-white/10 rounded-xl text-charcoal dark:text-white focus:outline-none focus:border-gold/50 transition-all"
                     />
                     {errors.guests && (
                       <motion.p
@@ -343,13 +343,13 @@ export default function Booking() {
                   </div>
 
                   <div>
-                    <label className="block text-white/70 text-sm mb-2">Special Requests</label>
+                    <label className="block text-charcoal/70 dark:text-white/70 text-sm mb-2">Special Requests</label>
                     <textarea
                       rows={4}
                       defaultValue={formData.specialRequests || ''}
                       {...register('specialRequests')}
                       placeholder="Window seat, birthday celebration, dietary requirements..."
-                      className="w-full px-5 py-4 bg-dark-card border border-white/10 rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-gold/50 transition-all resize-none"
+                      className="w-full px-5 py-4 bg-white dark:bg-dark-card border border-charcoal/10 dark:border-white/10 rounded-xl text-charcoal dark:text-white placeholder:text-charcoal/30 dark:placeholder:text-white/30 focus:outline-none focus:border-gold/50 transition-all resize-none"
                     />
                   </div>
                 </motion.div>
@@ -365,13 +365,13 @@ export default function Booking() {
                   className="space-y-6"
                 >
                   <div>
-                    <label className="block text-white/70 text-sm mb-2">Full Name</label>
+                    <label className="block text-charcoal/70 dark:text-white/70 text-sm mb-2">Full Name</label>
                     <input
                       type="text"
                       defaultValue={formData.customerName || ''}
                       {...register('customerName')}
                       placeholder="John Doe"
-                      className="w-full px-5 py-4 bg-dark-card border border-white/10 rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-gold/50 transition-all"
+                      className="w-full px-5 py-4 bg-white dark:bg-dark-card border border-charcoal/10 dark:border-white/10 rounded-xl text-charcoal dark:text-white placeholder:text-charcoal/30 dark:placeholder:text-white/30 focus:outline-none focus:border-gold/50 transition-all"
                     />
                     {errors.customerName && (
                       <motion.p
@@ -385,13 +385,13 @@ export default function Booking() {
                   </div>
 
                   <div>
-                    <label className="block text-white/70 text-sm mb-2">Email</label>
+                    <label className="block text-charcoal/70 dark:text-white/70 text-sm mb-2">Email</label>
                     <input
                       type="email"
                       defaultValue={formData.customerEmail || ''}
                       {...register('customerEmail')}
                       placeholder="john@email.com"
-                      className="w-full px-5 py-4 bg-dark-card border border-white/10 rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-gold/50 transition-all"
+                      className="w-full px-5 py-4 bg-white dark:bg-dark-card border border-charcoal/10 dark:border-white/10 rounded-xl text-charcoal dark:text-white placeholder:text-charcoal/30 dark:placeholder:text-white/30 focus:outline-none focus:border-gold/50 transition-all"
                     />
                     {errors.customerEmail && (
                       <motion.p
@@ -405,13 +405,13 @@ export default function Booking() {
                   </div>
 
                   <div>
-                    <label className="block text-white/70 text-sm mb-2">Phone</label>
+                    <label className="block text-charcoal/70 dark:text-white/70 text-sm mb-2">Phone</label>
                     <input
                       type="tel"
                       defaultValue={formData.customerPhone || ''}
                       {...register('customerPhone')}
                       placeholder="+1 234 567 890"
-                      className="w-full px-5 py-4 bg-dark-card border border-white/10 rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-gold/50 transition-all"
+                      className="w-full px-5 py-4 bg-white dark:bg-dark-card border border-charcoal/10 dark:border-white/10 rounded-xl text-charcoal dark:text-white placeholder:text-charcoal/30 dark:placeholder:text-white/30 focus:outline-none focus:border-gold/50 transition-all"
                     />
                     {errors.customerPhone && (
                       <motion.p
@@ -435,7 +435,7 @@ export default function Booking() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={onPrev}
-                  className="px-6 py-3 text-white/70 hover:text-white border border-white/20 rounded-full transition-colors"
+                  className="px-6 py-3 text-charcoal/70 dark:text-white/70 hover:text-charcoal dark:hover:text-white border border-charcoal/20 dark:border-white/20 rounded-full transition-colors"
                 >
                   Back
                 </motion.button>

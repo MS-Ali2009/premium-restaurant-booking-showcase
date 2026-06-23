@@ -35,7 +35,7 @@ export default function Navbar() {
       transition={{ duration: 0.6, ease: 'easeOut' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-charcoal/95 backdrop-blur-xl shadow-2xl'
+          ? 'bg-cream/95 dark:bg-charcoal/95 backdrop-blur-xl shadow-2xl'
           : 'bg-transparent'
       }`}
     >
@@ -50,7 +50,7 @@ export default function Navbar() {
             >
               <span className="text-charcoal font-serif font-bold text-lg">L</span>
             </motion.div>
-            <span className="font-serif text-xl font-bold text-white">
+            <span className="font-serif text-xl font-bold text-charcoal dark:text-white">
               L'Élégance
             </span>
           </Link>
@@ -67,7 +67,7 @@ export default function Navbar() {
                   className={`text-sm font-medium transition-colors duration-300 ${
                     location.pathname === link.path
                       ? 'text-gold'
-                      : 'text-white/80 group-hover:text-gold'
+                      : 'text-charcoal/80 dark:text-white/80 group-hover:text-gold'
                   }`}
                 >
                   {link.label}
@@ -108,7 +108,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-white"
+            className="md:hidden p-2 text-charcoal dark:text-white"
             aria-label="Toggle menu"
           >
             <div className="w-6 h-5 relative flex flex-col justify-between">
@@ -137,7 +137,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-charcoal/98 backdrop-blur-xl border-t border-gold/20"
+            className="md:hidden bg-cream/98 dark:bg-charcoal/98 backdrop-blur-xl border-t border-gold/20"
           >
             <div className="px-4 py-6 space-y-3">
               {navLinks.map((link, i) => (
@@ -152,7 +152,7 @@ export default function Navbar() {
                     className={`block px-4 py-3 rounded-lg text-lg font-medium transition-colors ${
                       location.pathname === link.path
                         ? 'text-gold bg-gold/10'
-                        : 'text-white/80 hover:text-gold hover:bg-gold/5'
+                        : 'text-charcoal/80 dark:text-white/80 hover:text-gold hover:bg-gold/5'
                     }`}
                   >
                     {link.label}
@@ -164,7 +164,7 @@ export default function Navbar() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
                 onClick={toggleTheme}
-                className="w-full px-4 py-3 text-left text-white/80 hover:text-gold rounded-lg"
+                className="w-full px-4 py-3 text-left text-charcoal/80 dark:text-white/80 hover:text-gold rounded-lg"
               >
                 {isDark ? '☀️ Light Mode' : '🌙 Dark Mode'}
               </motion.button>

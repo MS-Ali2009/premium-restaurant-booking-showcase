@@ -20,9 +20,10 @@ function VerifiedModal({ booking, alreadyScanned, onClose }) {
         exit={{ scale: 0.8, opacity: 0 }}
         transition={{ type: 'spring', stiffness: 200 }}
         onClick={(e) => e.stopPropagation()}
-        className="bg-dark-card border border-gold/20 rounded-3xl p-8 max-w-md w-full text-center"
+        className="bg-white dark:bg-dark-card border border-gold/20 rounded-3xl p-8 max-w-md w-full text-center"
       >
         {alreadyScanned ? (
+
           <>
             <motion.div
               initial={{ scale: 0 }}
@@ -33,8 +34,8 @@ function VerifiedModal({ booking, alreadyScanned, onClose }) {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
               </svg>
             </motion.div>
-            <h3 className="font-serif text-2xl text-white mb-2">Already Verified</h3>
-            <p className="text-white/60 text-sm mb-6">This booking has already been scanned.</p>
+            <h3 className="font-serif text-2xl text-charcoal dark:text-white mb-2">Already Verified</h3>
+            <p className="text-charcoal/60 dark:text-white/60 text-sm mb-6">This booking has already been scanned.</p>
           </>
         ) : (
           <>
@@ -63,31 +64,31 @@ function VerifiedModal({ booking, alreadyScanned, onClose }) {
                 />
               </motion.svg>
             </motion.div>
-            <h3 className="font-serif text-2xl text-white mb-2">Booking Verified!</h3>
-            <p className="text-white/60 text-sm mb-6">Welcome to L'Élégance.</p>
+            <h3 className="font-serif text-2xl text-charcoal dark:text-white mb-2">Booking Verified!</h3>
+            <p className="text-charcoal/60 dark:text-white/60 text-sm mb-6">Welcome to L'Élégance.</p>
           </>
         )}
 
         {/* Booking Details */}
-        <div className="bg-charcoal/50 rounded-xl p-4 mb-6 text-left space-y-2">
+        <div className="bg-cream dark:bg-charcoal/50 rounded-xl p-4 mb-6 text-left space-y-2">
           <div className="flex justify-between text-sm">
-            <span className="text-white/50">Guest</span>
-            <span className="text-white">{booking.customerName}</span>
+            <span className="text-charcoal/50 dark:text-white/50">Guest</span>
+            <span className="text-charcoal dark:text-white">{booking.customerName}</span>
           </div>
           <div className="flex justify-between text-sm">
-            <span className="text-white/50">Date</span>
-            <span className="text-white">{booking.date}</span>
+            <span className="text-charcoal/50 dark:text-white/50">Date</span>
+            <span className="text-charcoal dark:text-white">{booking.date}</span>
           </div>
           <div className="flex justify-between text-sm">
-            <span className="text-white/50">Time</span>
-            <span className="text-white">{booking.time}</span>
+            <span className="text-charcoal/50 dark:text-white/50">Time</span>
+            <span className="text-charcoal dark:text-white">{booking.time}</span>
           </div>
           <div className="flex justify-between text-sm">
-            <span className="text-white/50">Guests</span>
-            <span className="text-white">{booking.guests}</span>
+            <span className="text-charcoal/50 dark:text-white/50">Guests</span>
+            <span className="text-charcoal dark:text-white">{booking.guests}</span>
           </div>
           <div className="flex justify-between text-sm">
-            <span className="text-white/50">Status</span>
+            <span className="text-charcoal/50 dark:text-white/50">Status</span>
             <span className={`capitalize ${booking.status === 'cancelled' ? 'text-red-400' : 'text-green-400'}`}>
               {booking.status}
             </span>
@@ -122,15 +123,15 @@ function ErrorModal({ message, onClose }) {
         exit={{ scale: 0.8 }}
         transition={{ x: { duration: 0.5 } }}
         onClick={(e) => e.stopPropagation()}
-        className="bg-dark-card border border-red-500/20 rounded-3xl p-8 max-w-sm w-full text-center"
+        className="bg-white dark:bg-dark-card border border-red-500/20 rounded-3xl p-8 max-w-sm w-full text-center"
       >
         <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-red-500/10 border-2 border-red-500 flex items-center justify-center">
           <svg className="w-10 h-10 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
           </svg>
         </div>
-        <h3 className="font-serif text-2xl text-white mb-2">Not Found</h3>
-        <p className="text-white/60 text-sm mb-6">{message}</p>
+        <h3 className="font-serif text-2xl text-charcoal dark:text-white mb-2">Not Found</h3>
+        <p className="text-charcoal/60 dark:text-white/60 text-sm mb-6">{message}</p>
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -224,17 +225,17 @@ export default function Scanner() {
 
   return (
     <PageTransition>
-      <div className="min-h-screen bg-charcoal pt-28 pb-20">
+      <div className="min-h-screen bg-cream dark:bg-charcoal pt-28 pb-20">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-12">
               <p className="text-gold tracking-widest uppercase text-sm mb-3">
                 Verify Booking
               </p>
-              <h1 className="font-serif text-5xl sm:text-6xl text-white font-bold mb-4">
+              <h1 className="font-serif text-5xl sm:text-6xl text-charcoal dark:text-white font-bold mb-4">
                 QR Scanner
               </h1>
-              <p className="text-white/60">
+              <p className="text-charcoal/60 dark:text-white/60">
                 Scan the QR code on your booking confirmation to verify your reservation.
               </p>
             </div>
@@ -242,11 +243,11 @@ export default function Scanner() {
 
           {/* Scanner Area */}
           <ScrollReveal delay={0.1}>
-            <div className="bg-dark-card border border-white/5 rounded-3xl p-6 mb-8">
+            <div className="bg-white dark:bg-dark-card border border-charcoal/10 dark:border-white/5 rounded-3xl p-6 mb-8">
               <div
                 id="qr-reader"
                 ref={scannerRef}
-                className="rounded-2xl overflow-hidden bg-charcoal aspect-square max-w-sm mx-auto mb-6"
+                className="rounded-2xl overflow-hidden bg-cream dark:bg-charcoal aspect-square max-w-sm mx-auto mb-6"
               />
 
               <div className="flex justify-center">
@@ -279,9 +280,9 @@ export default function Scanner() {
 
           {/* Manual Entry */}
           <ScrollReveal delay={0.2}>
-            <div className="bg-dark-card border border-white/5 rounded-3xl p-6">
-              <h3 className="text-white font-serif text-lg mb-4">Manual Entry</h3>
-              <p className="text-white/50 text-sm mb-4">
+            <div className="bg-white dark:bg-dark-card border border-charcoal/10 dark:border-white/5 rounded-3xl p-6">
+              <h3 className="text-charcoal dark:text-white font-serif text-lg mb-4">Manual Entry</h3>
+              <p className="text-charcoal/50 dark:text-white/50 text-sm mb-4">
                 Don't have a camera? Enter the booking ID manually.
               </p>
               <div className="flex gap-3">
@@ -291,7 +292,7 @@ export default function Scanner() {
                   onChange={(e) => setManualId(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleManualLookup()}
                   placeholder="Enter booking ID..."
-                  className="flex-1 px-5 py-3 bg-charcoal border border-white/10 rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-gold/50 transition-all"
+                  className="flex-1 px-5 py-3 bg-cream dark:bg-charcoal border border-charcoal/10 dark:border-white/10 rounded-xl text-charcoal dark:text-white placeholder:text-charcoal/30 dark:placeholder:text-white/30 focus:outline-none focus:border-gold/50 transition-all"
                 />
                 <motion.button
                   whileHover={{ scale: 1.05 }}

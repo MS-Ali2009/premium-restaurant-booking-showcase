@@ -56,7 +56,7 @@ export default function Gallery() {
 
   return (
     <PageTransition>
-      <div className="min-h-screen bg-charcoal pt-28 pb-20">
+      <div className="min-h-screen bg-cream dark:bg-charcoal pt-28 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <ScrollReveal>
@@ -64,10 +64,10 @@ export default function Gallery() {
               <p className="text-gold tracking-widest uppercase text-sm mb-3">
                 Visual Journey
               </p>
-              <h1 className="font-serif text-5xl sm:text-6xl text-white font-bold mb-4">
+              <h1 className="font-serif text-5xl sm:text-6xl text-charcoal dark:text-white font-bold mb-4">
                 Our Gallery
               </h1>
-              <p className="text-white/60 max-w-2xl mx-auto">
+              <p className="text-charcoal/60 dark:text-white/60 max-w-2xl mx-auto">
                 A glimpse into the world of L'Élégance – from our stunning interiors
                 to our culinary masterpieces.
               </p>
@@ -86,7 +86,7 @@ export default function Gallery() {
                   className={`relative px-6 py-2.5 rounded-full text-sm font-medium transition-all ${
                     activeCategory === cat
                       ? 'text-charcoal'
-                      : 'text-white/70 bg-dark-card border border-white/10'
+                      : 'text-charcoal/70 dark:text-white/70 bg-white dark:bg-dark-card border border-charcoal/10 dark:border-white/10'
                   }`}
                 >
                   {activeCategory === cat && (

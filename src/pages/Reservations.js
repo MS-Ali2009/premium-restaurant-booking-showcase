@@ -24,12 +24,12 @@ function BookingCard({ booking, onCancel }) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, x: -100 }}
-      className="bg-dark-card border border-white/5 rounded-2xl overflow-hidden"
+      className="bg-white dark:bg-dark-card border border-charcoal/10 dark:border-white/5 rounded-2xl overflow-hidden"
     >
       {/* Header */}
       <div
         onClick={() => setExpanded(!expanded)}
-        className="p-6 cursor-pointer hover:bg-white/5 transition-colors"
+        className="p-6 cursor-pointer hover:bg-charcoal/5 dark:hover:bg-white/5 transition-colors"
       >
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
@@ -39,8 +39,8 @@ function BookingCard({ booking, onCancel }) {
               </span>
             </div>
             <div>
-              <h3 className="text-white font-medium">{booking.customerName}</h3>
-              <p className="text-white/50 text-sm">
+              <h3 className="text-charcoal dark:text-white font-medium">{booking.customerName}</h3>
+              <p className="text-charcoal/50 dark:text-white/50 text-sm">
                 {booking.date} at {booking.time} · {booking.guests} guests
               </p>
             </div>
@@ -55,7 +55,7 @@ function BookingCard({ booking, onCancel }) {
             </span>
             <motion.svg
               animate={{ rotate: expanded ? 180 : 0 }}
-              className="w-5 h-5 text-white/40"
+              className="w-5 h-5 text-charcoal/40 dark:text-white/40"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -76,23 +76,23 @@ function BookingCard({ booking, onCancel }) {
             transition={{ duration: 0.3 }}
             className="overflow-hidden"
           >
-            <div className="px-6 pb-6 border-t border-white/5 pt-4">
+            <div className="px-6 pb-6 border-t border-charcoal/5 dark:border-white/5 pt-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                 <div>
-                  <p className="text-white/40 text-xs mb-1">Reference ID</p>
+                  <p className="text-charcoal/40 dark:text-white/40 text-xs mb-1">Reference ID</p>
                   <p className="text-gold font-mono text-sm">{booking.id.slice(0, 8).toUpperCase()}</p>
                 </div>
                 <div>
-                  <p className="text-white/40 text-xs mb-1">Email</p>
-                  <p className="text-white text-sm">{booking.customerEmail}</p>
+                  <p className="text-charcoal/40 dark:text-white/40 text-xs mb-1">Email</p>
+                  <p className="text-charcoal dark:text-white text-sm">{booking.customerEmail}</p>
                 </div>
                 <div>
-                  <p className="text-white/40 text-xs mb-1">Phone</p>
-                  <p className="text-white text-sm">{booking.customerPhone}</p>
+                  <p className="text-charcoal/40 dark:text-white/40 text-xs mb-1">Phone</p>
+                  <p className="text-charcoal dark:text-white text-sm">{booking.customerPhone}</p>
                 </div>
                 <div>
-                  <p className="text-white/40 text-xs mb-1">Special Requests</p>
-                  <p className="text-white text-sm">{booking.specialRequests || 'None'}</p>
+                  <p className="text-charcoal/40 dark:text-white/40 text-xs mb-1">Special Requests</p>
+                  <p className="text-charcoal dark:text-white text-sm">{booking.specialRequests || 'None'}</p>
                 </div>
               </div>
 
@@ -143,19 +143,19 @@ function BookingCard({ booking, onCancel }) {
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-dark-card border border-white/10 rounded-2xl p-6 max-w-sm w-full text-center"
+              className="bg-white dark:bg-dark-card border border-charcoal/10 dark:border-white/10 rounded-2xl p-6 max-w-sm w-full text-center"
             >
               <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-red-500/10 flex items-center justify-center">
                 <svg className="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
                 </svg>
               </div>
-              <h3 className="text-white font-serif text-xl mb-2">Cancel Reservation?</h3>
-              <p className="text-white/50 text-sm mb-6">This action cannot be undone.</p>
+              <h3 className="text-charcoal dark:text-white font-serif text-xl mb-2">Cancel Reservation?</h3>
+              <p className="text-charcoal/50 dark:text-white/50 text-sm mb-6">This action cannot be undone.</p>
               <div className="flex gap-3">
                 <button
                   onClick={() => setShowCancel(false)}
-                  className="flex-1 py-2.5 border border-white/20 rounded-xl text-white/70 hover:text-white transition-colors"
+                  className="flex-1 py-2.5 border border-charcoal/20 dark:border-white/20 rounded-xl text-charcoal/70 dark:text-white/70 hover:text-charcoal dark:hover:text-white transition-colors"
                 >
                   Keep It
                 </button>
@@ -189,14 +189,14 @@ export default function Reservations() {
 
   return (
     <PageTransition>
-      <div className="min-h-screen bg-charcoal pt-28 pb-20">
+      <div className="min-h-screen bg-cream dark:bg-charcoal pt-28 pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-12">
               <p className="text-gold tracking-widest uppercase text-sm mb-3">
                 Your Bookings
               </p>
-              <h1 className="font-serif text-5xl sm:text-6xl text-white font-bold mb-4">
+              <h1 className="font-serif text-5xl sm:text-6xl text-charcoal dark:text-white font-bold mb-4">
                 My Reservations
               </h1>
             </div>
@@ -214,7 +214,7 @@ export default function Reservations() {
                   className={`relative px-5 py-2 rounded-full text-sm font-medium capitalize transition-all ${
                     activeFilter === filter
                       ? 'text-charcoal'
-                      : 'text-white/60 bg-dark-card border border-white/10'
+                      : 'text-charcoal/60 dark:text-white/60 bg-white dark:bg-dark-card border border-charcoal/10 dark:border-white/10'
                   }`}
                 >
                   {activeFilter === filter && (
@@ -250,12 +250,12 @@ export default function Reservations() {
               animate={{ opacity: 1 }}
               className="text-center py-20"
             >
-              <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-dark-card flex items-center justify-center">
-                <svg className="w-12 h-12 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-charcoal/5 dark:bg-dark-card flex items-center justify-center">
+                <svg className="w-12 h-12 text-charcoal/20 dark:text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
               </div>
-              <p className="text-white/40 text-lg mb-4">No reservations found</p>
+              <p className="text-charcoal/40 dark:text-white/40 text-lg mb-4">No reservations found</p>
               <Link to="/booking">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
