@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { QRCodeSVG } from 'qrcode.react';
+import toast from 'react-hot-toast';
 import { useBooking } from '../context/BookingContext';
 import PageTransition from '../components/PageTransition';
 import ScrollReveal from '../components/ScrollReveal';
@@ -17,6 +18,7 @@ const step1Schema = yup.object({
 
 const step2Schema = yup.object({
   guests: yup.number().min(1, 'At least 1 guest').max(12, 'Maximum 12 guests').required('Required'),
+  tableNumber: yup.number().nullable(),
   specialRequests: yup.string(),
 });
 
@@ -49,6 +51,37 @@ function TimeSlot({ time, available, isFull, isSelected, onClick }) {
         {isFull ? 'Full' : `${available} left`}
       </div>
     </motion.button>
+  );
+}
+
+function TableSelection({ selectedTable, onSelect }) {
+  const tables = Array.from({ length: 16 }, (_, i) => i + 1);
+
+  return (
+    <div>
+      <label className="block text-charcoal/70 dark:text-white/70 text-sm mb-3">Select a Table (Optional)</label>
+      <div className="grid grid-cols-4 gap-3 p-4 bg-cream/50 dark:bg-charcoal/30 rounded-2xl border border-charcoal/5 dark:border-white/5">
+        {tables.map((num) => (
+          <motion.button
+            key={num}
+            type="button"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={() => onSelect(selectedTable === num ? null : num)}
+            className={`w-full aspect-square rounded-full flex items-center justify-center text-sm font-medium transition-all duration-300 ${
+              selectedTable === num
+                ? 'bg-gold text-charcoal ring-4 ring-gold/30 shadow-lg shadow-gold/20'
+                : 'bg-white dark:bg-dark-card text-charcoal/60 dark:text-white/60 border border-charcoal/10 dark:border-white/10 hover:border-gold/40'
+            }`}
+          >
+            {num}
+          </motion.button>
+        ))}
+      </div>
+      <p className="text-charcoal/40 dark:text-white/40 text-xs mt-2">
+        {selectedTable ? `Table ${selectedTable} selected` : 'Tap a table to select your preferred spot'}
+      </p>
+    </div>
   );
 }
 
@@ -148,6 +181,7 @@ export default function Booking() {
   const [currentStep, setCurrentStep] = useState(0);
   const [formData, setFormData] = useState({});
   const [completedBooking, setCompletedBooking] = useState(null);
+  const [selectedTable, setSelectedTable] = useState(null);
   const { createBooking, getAvailability } = useBooking();
 
   const {
@@ -156,7 +190,6 @@ export default function Booking() {
     formState: { errors },
     setValue,
     watch,
-    trigger,
   } = useForm({
     resolver: yupResolver(schemas[currentStep]),
     mode: 'onChange',
@@ -173,7 +206,7 @@ export default function Booking() {
   };
 
   const onNext = useCallback(async (data) => {
-    const merged = { ...formData, ...data };
+    const merged = { ...formData, ...data, tableNumber: selectedTable };
     setFormData(merged);
 
     if (currentStep < 2) {
@@ -181,8 +214,12 @@ export default function Booking() {
     } else {
       const booking = createBooking(merged);
       setCompletedBooking(booking);
+      toast.success('Reservation confirmed!', {
+        style: { background: '#2A2A2A', color: '#fff', border: '1px solid rgba(201,169,110,0.3)' },
+        iconTheme: { primary: '#C9A96E', secondary: '#1A1A1A' },
+      });
     }
-  }, [currentStep, formData, createBooking]);
+  }, [currentStep, formData, selectedTable, createBooking]);
 
   const onPrev = () => {
     if (currentStep > 0) setCurrentStep((prev) => prev - 1);
@@ -341,6 +378,12 @@ export default function Booking() {
                       </motion.p>
                     )}
                   </div>
+
+                  {/* Interactive Table Selection */}
+                  <TableSelection
+                    selectedTable={selectedTable}
+                    onSelect={setSelectedTable}
+                  />
 
                   <div>
                     <label className="block text-charcoal/70 dark:text-white/70 text-sm mb-2">Special Requests</label>
