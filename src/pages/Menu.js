@@ -13,7 +13,7 @@ function DishCard({ dish, index }) {
       exit={{ opacity: 0, scale: 0.9 }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
       whileHover={{ y: -8, rotateX: 2, rotateY: 2 }}
-      className="group relative overflow-hidden rounded-2xl bg-dark-card border border-white/5 cursor-pointer"
+      className="group relative overflow-hidden rounded-2xl bg-white dark:bg-dark-card border border-charcoal/10 dark:border-white/5 cursor-pointer"
       style={{ perspective: '1000px', transformStyle: 'preserve-3d' }}
     >
       {/* Image */}
@@ -26,7 +26,7 @@ function DishCard({ dish, index }) {
           className="w-full h-full object-cover"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 dark:from-charcoal/80" />
         
         {/* Price badge */}
         <motion.div
@@ -41,11 +41,11 @@ function DishCard({ dish, index }) {
       {/* Content */}
       <div className="p-5">
         <div className="flex items-start justify-between mb-2">
-          <h3 className="font-serif text-lg text-white group-hover:text-gold transition-colors">
+          <h3 className="font-serif text-lg text-charcoal dark:text-white group-hover:text-gold transition-colors">
             {dish.name}
           </h3>
         </div>
-        <p className="text-white/50 text-sm leading-relaxed line-clamp-2">
+        <p className="text-charcoal/50 dark:text-white/50 text-sm leading-relaxed line-clamp-2">
           {dish.description}
         </p>
         <div className="mt-3 flex items-center gap-2">
@@ -78,7 +78,7 @@ export default function Menu() {
 
   return (
     <PageTransition>
-      <div className="min-h-screen bg-charcoal pt-28 pb-20">
+      <div className="min-h-screen bg-cream dark:bg-charcoal pt-28 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <ScrollReveal>
@@ -86,10 +86,10 @@ export default function Menu() {
               <p className="text-gold tracking-widest uppercase text-sm mb-3">
                 Discover Our Flavours
               </p>
-              <h1 className="font-serif text-5xl sm:text-6xl text-white font-bold mb-4">
+              <h1 className="font-serif text-5xl sm:text-6xl text-charcoal dark:text-white font-bold mb-4">
                 The Menu
               </h1>
-              <p className="text-white/60 max-w-2xl mx-auto">
+              <p className="text-charcoal/60 dark:text-white/60 max-w-2xl mx-auto">
                 Each dish is a masterpiece crafted with the finest ingredients,
                 bringing together tradition and innovation.
               </p>
@@ -105,7 +105,7 @@ export default function Menu() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search dishes..."
-                  className="w-full px-6 py-4 bg-dark-card border border-white/10 rounded-full text-white placeholder:text-white/40 focus:outline-none focus:border-gold/50 focus:ring-1 focus:ring-gold/30 transition-all"
+                  className="w-full px-6 py-4 bg-white dark:bg-dark-card border border-charcoal/10 dark:border-white/10 rounded-full text-charcoal dark:text-white placeholder:text-charcoal/40 dark:placeholder:text-white/40 focus:outline-none focus:border-gold/50 focus:ring-1 focus:ring-gold/30 transition-all"
                 />
                 <svg
                   className="absolute right-5 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40"
@@ -136,7 +136,7 @@ export default function Menu() {
                   className={`relative px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
                     activeCategory === cat
                       ? 'text-charcoal'
-                      : 'text-white/70 hover:text-white bg-dark-card border border-white/10'
+                      : 'text-charcoal/70 dark:text-white/70 hover:text-charcoal dark:hover:text-white bg-white dark:bg-dark-card border border-charcoal/10 dark:border-white/10'
                   }`}
                 >
                   {activeCategory === cat && (
@@ -168,7 +168,7 @@ export default function Menu() {
               animate={{ opacity: 1 }}
               className="text-center py-20"
             >
-              <p className="text-white/40 text-lg">
+              <p className="text-charcoal/40 dark:text-white/40 text-lg">
                 No dishes found. Try a different search or category.
               </p>
             </motion.div>

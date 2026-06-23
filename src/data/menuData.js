@@ -138,7 +138,7 @@ export const galleryImages = [
   { id: 4, src: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop', alt: 'Gourmet Plate', category: 'Food' },
   { id: 5, src: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&h=400&fit=crop', alt: 'Bar Area', category: 'Interior' },
   { id: 6, src: 'https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600&h=400&fit=crop', alt: 'Dessert Presentation', category: 'Food' },
-  { id: 7, src: 'https://images.unsplash.com/photo-1550966871-3ed3cdb51f3a?w=600&h=400&fit=crop', alt: 'Private Dining', category: 'Events' },
+  { id: 7, src: 'https://images.unsplash.com/photo-1544148103-0773bf10d330?w=600&h=400&fit=crop', alt: 'Private Dining', category: 'Events' },
   { id: 8, src: 'https://images.unsplash.com/photo-1482275548304-a58859dc31b7?w=600&h=400&fit=crop', alt: 'Wine Cellar', category: 'Interior' },
   { id: 9, src: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&h=400&fit=crop', alt: 'Vegetable Dish', category: 'Food' },
   { id: 10, src: 'https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=600&h=400&fit=crop', alt: 'Celebration Event', category: 'Events' },

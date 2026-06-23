@@ -8,7 +8,7 @@
   body {
     @apply font-sans bg-cream text-charcoal antialiased;
   }
-  .dark body, body.dark {
+  .dark body {
     @apply bg-charcoal text-cream;
   }
 }

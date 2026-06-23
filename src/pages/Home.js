@@ -25,7 +25,7 @@ function HeroSection() {
               'url(https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&h=1080&fit=crop)',
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/70 via-charcoal/50 to-charcoal" />
+        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/70 via-charcoal/50 to-cream dark:to-charcoal" />
       </motion.div>
 
       {/* Floating particles */}
@@ -138,7 +138,7 @@ function StatsSection() {
   ];
 
   return (
-    <section className="section-padding bg-charcoal">
+    <section className="section-padding bg-cream dark:bg-charcoal">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, i) => (
@@ -153,7 +153,7 @@ function StatsSection() {
                 >
                   {stat.value}
                 </motion.h3>
-                <p className="text-white/60 text-sm">{stat.label}</p>
+                <p className="text-charcoal/60 dark:text-white/60 text-sm">{stat.label}</p>
               </div>
             </ScrollReveal>
           ))}
@@ -167,14 +167,14 @@ function FeaturedDishes() {
   const featured = menuItems.slice(0, 4);
 
   return (
-    <section className="section-padding bg-charcoal">
+    <section className="section-padding bg-cream dark:bg-charcoal">
       <div className="max-w-7xl mx-auto">
         <ScrollReveal>
           <div className="text-center mb-16">
             <p className="text-gold tracking-widest uppercase text-sm mb-3">
               Culinary Masterpieces
             </p>
-            <h2 className="font-serif text-4xl sm:text-5xl text-white font-bold">
+            <h2 className="font-serif text-4xl sm:text-5xl text-charcoal dark:text-white font-bold">
               Signature Dishes
             </h2>
           </div>
@@ -185,7 +185,7 @@ function FeaturedDishes() {
             <ScrollReveal key={dish.id} delay={i * 0.1}>
               <motion.div
                 whileHover={{ y: -10, rotateY: 5 }}
-                className="group relative overflow-hidden rounded-2xl bg-dark-card border border-white/5"
+                className="group relative overflow-hidden rounded-2xl bg-white dark:bg-dark-card border border-charcoal/10 dark:border-white/5"
                 style={{ perspective: '1000px' }}
               >
                 <div className="aspect-[4/3] overflow-hidden">
@@ -199,10 +199,10 @@ function FeaturedDishes() {
                   />
                 </div>
                 <div className="p-5">
-                  <h3 className="font-serif text-lg text-white mb-1">
+                  <h3 className="font-serif text-lg text-charcoal dark:text-white mb-1">
                     {dish.name}
                   </h3>
-                  <p className="text-white/50 text-sm line-clamp-2 mb-3">
+                  <p className="text-charcoal/50 dark:text-white/50 text-sm line-clamp-2 mb-3">
                     {dish.description}
                   </p>
                   <p className="text-gold font-semibold">${dish.price}</p>
@@ -234,7 +234,7 @@ function FeaturedDishes() {
 
 function ChefStory() {
   return (
-    <section className="section-padding bg-charcoal overflow-hidden">
+    <section className="section-padding bg-cream dark:bg-charcoal overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <ScrollReveal direction="left">
@@ -265,16 +265,16 @@ function ChefStory() {
             <p className="text-gold tracking-widest uppercase text-sm mb-3">
               The Visionary
             </p>
-            <h2 className="font-serif text-4xl sm:text-5xl text-white font-bold mb-6">
+            <h2 className="font-serif text-4xl sm:text-5xl text-charcoal dark:text-white font-bold mb-6">
               Chef Laurent Dubois
             </h2>
-            <p className="text-white/60 leading-relaxed mb-6">
+            <p className="text-charcoal/60 dark:text-white/60 leading-relaxed mb-6">
               With over two decades of mastery across the world's finest kitchens,
               Chef Laurent brings an unparalleled passion for perfection. Each dish
               is a canvas, each ingredient a deliberate choice in the pursuit of
               culinary excellence.
             </p>
-            <p className="text-white/60 leading-relaxed mb-8">
+            <p className="text-charcoal/60 dark:text-white/60 leading-relaxed mb-8">
               Trained under the legendary Paul Bocuse and having earned three
               Michelin stars, his philosophy is simple: respect the ingredient, honor
               the tradition, and always surprise the palate.
@@ -297,7 +297,7 @@ function ChefStory() {
 
 function TestimonialsSection() {
   return (
-    <section className="section-padding bg-charcoal relative overflow-hidden">
+    <section className="section-padding bg-cream dark:bg-charcoal relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold/5 rounded-full blur-3xl" />
 
@@ -307,7 +307,7 @@ function TestimonialsSection() {
             <p className="text-gold tracking-widest uppercase text-sm mb-3">
               Testimonials
             </p>
-            <h2 className="font-serif text-4xl sm:text-5xl text-white font-bold">
+            <h2 className="font-serif text-4xl sm:text-5xl text-charcoal dark:text-white font-bold">
               Words of Praise
             </h2>
           </div>
@@ -318,7 +318,7 @@ function TestimonialsSection() {
             <ScrollReveal key={t.id} delay={i * 0.1}>
               <motion.div
                 whileHover={{ y: -5 }}
-                className="p-8 rounded-2xl bg-dark-card/50 backdrop-blur-sm border border-white/5"
+                className="p-8 rounded-2xl bg-white/80 dark:bg-dark-card/50 backdrop-blur-sm border border-charcoal/10 dark:border-white/5"
               >
                 <div className="flex items-center gap-4 mb-6">
                   <img
@@ -328,11 +328,11 @@ function TestimonialsSection() {
                     loading="lazy"
                   />
                   <div>
-                    <h4 className="text-white font-medium">{t.name}</h4>
+                    <h4 className="text-charcoal dark:text-white font-medium">{t.name}</h4>
                     <p className="text-gold/70 text-sm">{t.role}</p>
                   </div>
                 </div>
-                <p className="text-white/60 italic leading-relaxed">"{t.text}"</p>
+                <p className="text-charcoal/60 dark:text-white/60 italic leading-relaxed">"{t.text}"</p>
                 <div className="mt-4 flex gap-1">
                   {[...Array(t.rating)].map((_, idx) => (
                     <span key={idx} className="text-gold">★</span>
@@ -357,14 +357,14 @@ function CTASection() {
             'url(https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1920&h=1080&fit=crop)',
         }}
       />
-      <div className="absolute inset-0 bg-charcoal/80" />
+      <div className="absolute inset-0 bg-cream/80 dark:bg-charcoal/80" />
 
       <div className="relative max-w-4xl mx-auto text-center px-4">
         <ScrollReveal>
-          <h2 className="font-serif text-4xl sm:text-6xl text-white font-bold mb-6">
+          <h2 className="font-serif text-4xl sm:text-6xl text-charcoal dark:text-white font-bold mb-6">
             An Evening to Remember
           </h2>
-          <p className="text-white/70 text-lg mb-10 max-w-2xl mx-auto">
+          <p className="text-charcoal/70 dark:text-white/70 text-lg mb-10 max-w-2xl mx-auto">
             Join us for an extraordinary culinary journey. Reserve your table today
             and experience dining elevated to an art form.
           </p>
