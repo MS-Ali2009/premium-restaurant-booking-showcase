@@ -134,14 +134,26 @@ export default function About() {
 
             <div className="relative">
               {/* Center line */}
-              <div className="absolute left-1/2 -translate-x-0.5 top-0 bottom-0 w-px bg-gold/20 hidden md:block" />
+              <motion.div
+                initial={{ scaleY: 0 }}
+                whileInView={{ scaleY: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.5, ease: 'easeOut' }}
+                className="absolute left-1/2 -translate-x-0.5 top-0 bottom-0 w-px bg-gold/20 hidden md:block origin-top"
+              />
 
               {timeline.map((item, i) => (
-                <ScrollReveal key={item.year} delay={i * 0.1}>
+                <motion.div
+                  key={item.year}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.6, delay: i * 0.15 }}
+                >
                   <div className={`flex items-center mb-12 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                     <div className={`flex-1 ${i % 2 === 0 ? 'md:text-right md:pr-12' : 'md:text-left md:pl-12'}`}>
                       <motion.div
-                        whileHover={{ y: -5 }}
+                        whileHover={{ y: -5, boxShadow: '0 10px 30px rgba(201, 169, 110, 0.15)' }}
                         className="bg-white dark:bg-dark-card border border-charcoal/10 dark:border-white/5 rounded-2xl p-6 inline-block"
                       >
                         <span className="text-gold font-serif text-2xl font-bold">{item.year}</span>
@@ -149,11 +161,17 @@ export default function About() {
                         <p className="text-charcoal/50 dark:text-white/50 text-sm mt-2">{item.description}</p>
                       </motion.div>
                     </div>
-                    {/* Center dot */}
-                    <div className="hidden md:flex w-4 h-4 rounded-full bg-gold border-4 border-charcoal relative z-10 flex-shrink-0" />
+                    {/* Center dot with pulse animation */}
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.15 + 0.3, type: 'spring', stiffness: 300 }}
+                      className="hidden md:flex w-5 h-5 rounded-full bg-gold shadow-lg shadow-gold/30 relative z-10 flex-shrink-0"
+                    />
                     <div className="flex-1 hidden md:block" />
                   </div>
-                </ScrollReveal>
+                </motion.div>
               ))}
             </div>
           </div>

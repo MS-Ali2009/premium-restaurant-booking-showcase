@@ -6,7 +6,7 @@ import { useBooking } from '../context/BookingContext';
 import PageTransition from '../components/PageTransition';
 import ScrollReveal from '../components/ScrollReveal';
 
-const filters = ['all', 'confirmed', 'cancelled'];
+const filters = ['all', 'upcoming', 'past', 'cancelled'];
 
 function BookingCard({ booking, onCancel }) {
   const [expanded, setExpanded] = useState(false);
@@ -183,9 +183,15 @@ export default function Reservations() {
   const [activeFilter, setActiveFilter] = useState('all');
   const { bookings, cancelBooking } = useBooking();
 
-  const filteredBookings = bookings.filter(
-    (b) => activeFilter === 'all' || b.status === activeFilter
-  ).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+  const filteredBookings = bookings.filter((b) => {
+    if (activeFilter === 'all') return true;
+    if (activeFilter === 'cancelled') return b.status === 'cancelled';
+    const bookingDate = new Date(b.date + 'T' + b.time);
+    const now = new Date();
+    if (activeFilter === 'upcoming') return b.status === 'confirmed' && bookingDate >= now;
+    if (activeFilter === 'past') return b.status === 'confirmed' && bookingDate < now;
+    return true;
+  }).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
   return (
     <PageTransition>

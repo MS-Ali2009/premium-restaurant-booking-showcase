@@ -155,6 +155,19 @@ export default function Scanner() {
   const html5QrRef = useRef(null);
   const { getBookingById, markScanned } = useBooking();
 
+  const stopScanner = useCallback(async () => {
+    if (html5QrRef.current) {
+      try {
+        await html5QrRef.current.stop();
+        html5QrRef.current.clear();
+      } catch (e) {
+        // ignore
+      }
+      html5QrRef.current = null;
+    }
+    setScanning(false);
+  }, []);
+
   const handleScanResult = useCallback((decodedText) => {
     const booking = getBookingById(decodedText);
     if (booking) {
@@ -169,7 +182,7 @@ export default function Scanner() {
       setError('No booking found with this QR code. Please verify and try again.');
     }
     stopScanner();
-  }, [getBookingById, markScanned]);
+  }, [getBookingById, markScanned, stopScanner]);
 
   const startScanner = useCallback(async () => {
     try {
@@ -186,19 +199,6 @@ export default function Scanner() {
       setError('Unable to access camera. Please use manual entry below.');
     }
   }, [handleScanResult]);
-
-  const stopScanner = useCallback(async () => {
-    if (html5QrRef.current) {
-      try {
-        await html5QrRef.current.stop();
-        html5QrRef.current.clear();
-      } catch (e) {
-        // ignore
-      }
-      html5QrRef.current = null;
-    }
-    setScanning(false);
-  }, []);
 
   useEffect(() => {
     return () => {
