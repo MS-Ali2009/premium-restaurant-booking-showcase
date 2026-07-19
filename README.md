@@ -53,7 +53,7 @@ npm install
 npm start
 ```
 
-The app will open at [http://localhost:3000](http://localhost:3000).
+The app will open at (https://ms-ali2009.github.io/premium-restaurant-booking-showcase/).
 
 ### Production Build
 
