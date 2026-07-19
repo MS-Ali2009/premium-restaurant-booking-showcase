@@ -7,6 +7,10 @@ import { BookingProvider } from './context/BookingContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import LoadingSpinner from './components/LoadingSpinner';
+import LocationPopup from './components/LocationPopup';
+import AuthModal from './components/AuthModal';
+import CartDrawer from './components/CartDrawer';
+import AddToOrderModal from './components/AddToOrderModal';
 
 // Lazy-loaded pages
 const Home = lazy(() => import('./pages/Home'));
@@ -16,6 +20,9 @@ const Reservations = lazy(() => import('./pages/Reservations'));
 const Scanner = lazy(() => import('./pages/Scanner'));
 const Gallery = lazy(() => import('./pages/Gallery'));
 const About = lazy(() => import('./pages/About'));
+const Contact = lazy(() => import('./pages/Contact'));
+const Blogs = lazy(() => import('./pages/Blogs'));
+const Testimonials = lazy(() => import('./pages/Testimonials'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 function AnimatedRoutes() {
@@ -31,6 +38,9 @@ function AnimatedRoutes() {
         <Route path="/scanner" element={<Scanner />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/testimonials" element={<Testimonials />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
@@ -49,6 +59,11 @@ function App() {
             </Suspense>
             <Footer />
           </div>
+          {/* Global overlays & drawers */}
+          <LocationPopup />
+          <AuthModal />
+          <CartDrawer />
+          <AddToOrderModal />
           <Toaster
             position="top-right"
             toastOptions={{

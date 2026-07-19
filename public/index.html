@@ -5,12 +5,73 @@
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#1A1A1A" />
-    <meta name="description" content="L'Élégance - A Michelin-starred fine dining experience. Where culinary artistry meets timeless sophistication." />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <!-- ── Primary SEO ─────────────────────────────────────── -->
+    <title>L'Élégance | Award-Winning Fine Dining Restaurant</title>
+    <meta name="description" content="L'Élégance – a three-Michelin-starred fine dining experience in Paris, New York, London & Tokyo. Reserve your table and taste culinary artistry at its finest." />
+    <meta name="keywords" content="fine dining, Michelin star restaurant, luxury restaurant, Paris restaurant, New York restaurant, gourmet dining, chef's table, tasting menu" />
+    <meta name="author" content="L'Élégance Restaurant Group" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://lelegance.com/" />
+
+    <!-- ── Open Graph / Facebook ──────────────────────────── -->
+    <meta property="og:type" content="restaurant.restaurant" />
+    <meta property="og:url" content="https://lelegance.com/" />
+    <meta property="og:title" content="L'Élégance | Award-Winning Fine Dining Restaurant" />
+    <meta property="og:description" content="Three Michelin stars. Four cities. One unforgettable dining experience. Reserve your table today." />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&h=630&fit=crop" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:site_name" content="L'Élégance" />
+
+    <!-- ── Twitter Card ────────────────────────────────────── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@lelegance" />
+    <meta name="twitter:title" content="L'Élégance | Award-Winning Fine Dining Restaurant" />
+    <meta name="twitter:description" content="Three Michelin stars. Four cities. One unforgettable dining experience." />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&h=630&fit=crop" />
+
+    <!-- ── Schema.org Structured Data (JSON-LD) ──────────── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "L'Élégance",
+      "description": "Three-Michelin-starred fine dining restaurant with locations in Paris, New York, London and Tokyo.",
+      "url": "https://lelegance.com",
+      "telephone": "+33 1 42 60 82 00",
+      "priceRange": "$$$$ ",
+      "servesCuisine": ["French", "Contemporary European", "Gastronomic"],
+      "starRating": { "@type": "Rating", "ratingValue": "3", "bestRating": "3", "worstRating": "1" },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "42 Rue de Rivoli",
+        "addressLocality": "Paris",
+        "postalCode": "75001",
+        "addressCountry": "FR"
+      },
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "18:00", "closes": "23:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday","Saturday","Sunday"], "opens": "12:00", "closes": "23:30" }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/lelegance",
+        "https://www.facebook.com/lelegance"
+      ]
+    }
+    </script>
+
+    <!-- ── Performance: Font preload ─────────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <title>L'Élégance | Fine Dining Restaurant</title>
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- PWA -->
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

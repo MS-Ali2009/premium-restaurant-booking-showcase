@@ -22,7 +22,10 @@ const step2Schema = yup.object({
 
 const step3Schema = yup.object({
   customerName: yup.string().required('Name is required').min(2, 'Name too short'),
-  customerEmail: yup.string().email('Invalid email').required('Email is required'),
+  customerEmail: yup
+    .string()
+    .required('Email is required')
+    .matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, 'Please enter a valid email address.'),
   customerPhone: yup.string().required('Phone is required').min(8, 'Phone too short'),
 });
 
