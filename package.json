@@ -2,6 +2,7 @@
   "name": "luxury-restaurant",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://MS-Ali2009.github.io/premium-restaurant-booking-showcase",
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",
     "@testing-library/dom": "^10.4.1",

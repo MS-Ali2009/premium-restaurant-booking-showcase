@@ -51,7 +51,7 @@ function App() {
   return (
     <ThemeProvider>
       <BookingProvider>
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
           <div className="min-h-screen bg-cream dark:bg-charcoal transition-colors duration-300">
             <Navbar />
             <Suspense fallback={<LoadingSpinner />}>
