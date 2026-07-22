@@ -67,10 +67,10 @@ function HeroSection() {
         </motion.p>
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9, duration: 0.8 }} className="flex flex-col sm:flex-row gap-4">
           <Link to="/booking">
-            <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="btn-primary text-lg px-10 py-4">Reserve a Table</motion.button>
+            <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="btn-primary text-lg px-10 py-4 font-bold shadow-gold">Reserve</motion.button>
           </Link>
           <Link to="/menu">
-            <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="btn-secondary text-lg px-10 py-4 border-white/40 text-white hover:bg-white hover:text-charcoal">Explore Menu</motion.button>
+            <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="btn-secondary text-lg px-10 py-4 border-white/40 text-white hover:bg-white hover:text-charcoal font-semibold">Order for Delivery</motion.button>
           </Link>
         </motion.div>
         {/* Scroll indicator */}
@@ -271,11 +271,18 @@ function CTASection() {
           <p className="text-charcoal/70 dark:text-white/70 text-lg mb-10 max-w-2xl mx-auto">
             Join us for an extraordinary culinary journey. Reserve your table today and experience dining elevated to an art form.
           </p>
-          <Link to="/booking">
-            <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="btn-primary text-lg px-12 py-4">
-              Reserve Your Experience
-            </motion.button>
-          </Link>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link to="/booking">
+              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="btn-primary text-lg px-12 py-4 font-bold shadow-gold">
+                Reserve
+              </motion.button>
+            </Link>
+            <Link to="/menu">
+              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="btn-secondary text-lg px-10 py-4 font-semibold">
+                Order for Delivery
+              </motion.button>
+            </Link>
+          </div>
         </ScrollReveal>
       </div>
     </section>

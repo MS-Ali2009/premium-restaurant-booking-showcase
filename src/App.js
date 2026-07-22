@@ -23,6 +23,7 @@ const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Blogs = lazy(() => import('./pages/Blogs'));
 const Testimonials = lazy(() => import('./pages/Testimonials'));
+const Complaint = lazy(() => import('./pages/Complaint'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 function AnimatedRoutes() {
@@ -35,6 +36,7 @@ function AnimatedRoutes() {
         <Route path="/menu" element={<Menu />} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/reservations" element={<Reservations />} />
+        <Route path="/complaint" element={<Complaint />} />
         <Route path="/scanner" element={<Scanner />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/about" element={<About />} />

@@ -10,7 +10,7 @@ import * as yup from 'yup';
 import toast from 'react-hot-toast';
 
 const checkoutSchema = yup.object({
-  tableNumber: yup.string().required('Table number is required').matches(/^\d+$/, 'Must be a valid number'),
+  deliveryAddress: yup.string().required('Delivery address is required').min(3, 'Please enter a valid delivery address'),
   name: yup.string().required('Name is required').min(2, 'Name must be at least 2 characters'),
   email: yup.string().required('Email is required').matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, 'Please enter a valid email address.'),
   phone: yup.string().required('Phone number is required').min(6, 'Please enter a valid phone number'),
@@ -37,7 +37,7 @@ export default function CartDrawer() {
   } = useForm({
     resolver: yupResolver(checkoutSchema),
     defaultValues: {
-      tableNumber: '',
+      deliveryAddress: '',
       name: '',
       email: '',
       phone: '',
@@ -87,7 +87,7 @@ export default function CartDrawer() {
       date: new Date().toISOString().split('T')[0],
       time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       guests: 1, 
-      specialRequests: `Order: [${orderItemsSummary}]. Notes: ${data.notes || 'None'}. Table: ${data.tableNumber}`,
+      specialRequests: `Delivery Order: [${orderItemsSummary}]. Delivery Address: ${data.deliveryAddress}. Notes: ${data.notes || 'None'}`,
       customerName: data.name,
       customerEmail: data.email,
       customerPhone: data.phone,
@@ -137,8 +137,8 @@ export default function CartDrawer() {
               <div className="px-6 py-5 border-b border-charcoal/10 dark:border-white/10 flex items-center justify-between">
                 <h2 className="font-serif text-2xl font-bold text-charcoal dark:text-white">
                   {step === 1 && 'Shopping Cart'}
-                  {step === 2 && 'Checkout Details'}
-                  {step === 3 && 'Order Placed'}
+                  {step === 2 && 'Delivery Details'}
+                  {step === 3 && 'Delivery Order Placed'}
                 </h2>
                 <button
                   onClick={closeCart}
@@ -268,16 +268,16 @@ export default function CartDrawer() {
                   <div className="flex-1 overflow-y-auto p-6 space-y-5">
                     <div>
                       <label className="block text-[10px] font-bold uppercase tracking-widest text-charcoal/50 dark:text-white/40 mb-1.5">
-                        Table / Suite Number
+                        Delivery Address
                       </label>
                       <input
                         type="text"
-                        {...register('tableNumber')}
-                        placeholder="e.g. 5"
+                        {...register('deliveryAddress')}
+                        placeholder="e.g. 42 Rue de Rivoli, Apt 3B, Paris"
                         className="w-full px-4 py-3 bg-cream/30 dark:bg-charcoal/30 border border-charcoal/10 dark:border-white/10 rounded-xl text-charcoal dark:text-white focus:outline-none focus:border-gold/50 text-sm"
                       />
-                      {errors.tableNumber && (
-                        <p className="text-red-400 text-xs mt-1">{errors.tableNumber.message}</p>
+                      {errors.deliveryAddress && (
+                        <p className="text-red-400 text-xs mt-1">{errors.deliveryAddress.message}</p>
                       )}
                     </div>
 
@@ -383,10 +383,10 @@ export default function CartDrawer() {
                   </motion.div>
 
                   <h3 className="font-serif text-3xl font-bold text-charcoal dark:text-white mb-2">
-                    Order Transmitted!
+                    Delivery Order Confirmed!
                   </h3>
                   <p className="text-charcoal/60 dark:text-white/60 text-sm mb-6 max-w-xs leading-relaxed">
-                    Your table culinary request has been received by our head chef. Preparation has begun.
+                    Your food delivery order has been received by our head chef. Preparation & dispatch are underway.
                   </p>
 
                   <div className="w-full bg-cream/30 dark:bg-charcoal/30 border border-charcoal/10 dark:border-white/10 rounded-2xl p-5 mb-8 text-left space-y-3">

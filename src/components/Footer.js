@@ -4,15 +4,16 @@ import { useLocationStore } from '../store/locationStore';
 
 const footerLinks = {
   Explore: [
-    { to: '/menu', label: 'Our Menu' },
-    { to: '/booking', label: 'Make a Reservation' },
+    { to: '/menu', label: 'Order for Delivery' },
+    { to: '/booking', label: 'Reserve' },
     { to: '/gallery', label: 'Gallery' },
     { to: '/blogs', label: 'Blog & Stories' },
     { to: '/testimonials', label: 'Guest Reviews' },
   ],
-  About: [
+  Support: [
     { to: '/about', label: 'Our Story' },
     { to: '/contact', label: 'Contact Us' },
+    { to: '/complaint', label: 'Submit a Complaint' },
     { to: '/reservations', label: 'My Reservations' },
     { to: '/scanner', label: 'QR Scanner' },
   ],

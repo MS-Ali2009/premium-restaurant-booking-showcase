@@ -9,6 +9,7 @@ import { useLocationStore } from '../store/locationStore';
 const navLinks = [
   { path: '/', label: 'Home' },
   { path: '/menu', label: 'Menu' },
+  { path: '/complaint', label: 'Submit Complaint' },
   { path: '/blogs', label: 'Blogs' },
   { path: '/testimonials', label: 'Reviews' },
   { path: '/gallery', label: 'Gallery' },
@@ -232,6 +233,20 @@ export default function Navbar() {
                 </AnimatePresence>
               </motion.button>
 
+              {/* Reserve CTA Button */}
+              <Link to="/booking">
+                <motion.button
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="hidden sm:flex items-center gap-1.5 ml-1 px-4 py-2 bg-gold text-charcoal text-[13px] font-bold rounded-full shadow-gold hover:shadow-gold-lg hover:bg-gold-light transition-all duration-300 no-tap-highlight"
+                >
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  Reserve
+                </motion.button>
+              </Link>
+
               {/* Auth area */}
               {currentUser ? (
                 <div className="relative" ref={userMenuRef}>
@@ -254,7 +269,7 @@ export default function Navbar() {
                         transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
                         role="menu"
                         aria-label="User menu"
-                        className="absolute right-0 top-12 w-52 bg-white dark:bg-dark-card rounded-2xl shadow-luxury border border-charcoal/8 dark:border-white/8 overflow-hidden z-50"
+                        className="absolute right-0 top-12 w-56 bg-white dark:bg-dark-card rounded-2xl shadow-luxury border border-charcoal/8 dark:border-white/8 overflow-hidden z-50"
                       >
                         <div className="px-4 py-3.5 border-b border-charcoal/8 dark:border-white/8">
                           <p className="text-[13px] font-semibold text-charcoal dark:text-white truncate">{currentUser.name}</p>
@@ -269,9 +284,18 @@ export default function Navbar() {
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
                           My Reservations
                         </Link>
+                        <Link
+                          to="/complaint"
+                          className="flex items-center gap-2.5 px-4 py-3 text-[13px] text-charcoal/70 dark:text-white/70 hover:bg-gold/5 hover:text-gold transition-colors"
+                          role="menuitem"
+                          onClick={() => setUserMenuOpen(false)}
+                        >
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                          Submit a Complaint
+                        </Link>
                         <button
                           onClick={() => { logout(); setUserMenuOpen(false); }}
-                          className="w-full flex items-center gap-2.5 px-4 py-3 text-[13px] text-red-400 hover:bg-red-50 dark:hover:bg-red-900/15 transition-colors"
+                          className="w-full flex items-center gap-2.5 px-4 py-3 text-[13px] text-red-400 hover:bg-red-50 dark:hover:bg-red-900/15 transition-colors border-t border-charcoal/8 dark:border-white/8"
                           role="menuitem"
                         >
                           <SignOutIcon />
@@ -387,9 +411,18 @@ export default function Navbar() {
 
               {/* Drawer footer */}
               <div className="px-4 pb-6 pt-4 border-t border-charcoal/10 dark:border-white/10 space-y-3">
+                <Link
+                  to="/booking"
+                  onClick={() => setIsOpen(false)}
+                  className="w-full py-3 bg-gold text-charcoal font-bold rounded-xl text-sm flex justify-center items-center gap-2 hover:bg-gold-light transition-colors shadow-gold"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                  Reserve
+                </Link>
+
                 <button
                   onClick={() => { setShowPopup(true); setIsOpen(false); }}
-                  className="w-full flex items-center gap-2 px-4 py-3 rounded-xl border border-gold/30 text-gold text-sm font-medium hover:bg-gold/10 transition-colors"
+                  className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-gold/30 text-gold text-sm font-medium hover:bg-gold/10 transition-colors"
                 >
                   <LocationIcon />
                   {selectedLocation ? selectedLocation.city : 'Choose Location'}

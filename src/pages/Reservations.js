@@ -293,7 +293,7 @@ export default function Reservations() {
                   whileHover={{ scale: 1.05 }}
                   className="btn-primary"
                 >
-                  Book a Table
+                  Reserve
                 </motion.button>
               </Link>
             </motion.div>

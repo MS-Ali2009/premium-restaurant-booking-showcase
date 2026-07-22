@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -68,7 +69,7 @@ export default function Contact() {
           </ScrollReveal>
 
           {/* Contact details strip */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-20">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
             {[
               { icon: '📍', label: 'Visit Us', value: loc.address },
               { icon: '📞', label: 'Call Us', value: loc.phone },
@@ -83,6 +84,25 @@ export default function Contact() {
               </ScrollReveal>
             ))}
           </div>
+
+          {/* Complaint Banner */}
+          <ScrollReveal delay={0.3}>
+            <div className="mb-20 p-6 sm:p-8 bg-gradient-to-r from-gold/15 via-gold/5 to-transparent border border-gold/30 rounded-3xl flex flex-col sm:flex-row items-center justify-between gap-6">
+              <div>
+                <h3 className="font-serif text-xl sm:text-2xl text-charcoal dark:text-white font-bold mb-2">
+                  Have a Concern or Complaint?
+                </h3>
+                <p className="text-charcoal/70 dark:text-white/70 text-sm max-w-xl leading-relaxed">
+                  Our Guest Relations department takes all feedback seriously. Submit a complaint ticket and our team will get back to you within 24 hours.
+                </p>
+              </div>
+              <Link to="/complaint">
+                <motion.button whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }} className="btn-primary text-sm px-6 py-3 font-semibold whitespace-nowrap shadow-gold">
+                  Submit a Complaint
+                </motion.button>
+              </Link>
+            </div>
+          </ScrollReveal>
 
           {/* Contact Form + Map */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-24">
